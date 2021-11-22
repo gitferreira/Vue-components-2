@@ -3,8 +3,15 @@
     <header><h1>My friends</h1></header>
 
     <ul>
-      <friend-contact></friend-contact>
-      <friend-contact></friend-contact>
+      <friend-contact
+        v-for="friend in friends"
+        :key="friend.id"
+        :name="friend.name"
+        :phone-number="friend.phone"
+        :email-address="friend.email"
+        v-bind:is-favourite="true"
+      ></friend-contact>
+
     </ul>
   </section>
 </template>
@@ -13,7 +20,7 @@
 export default {
   data() {
     return {
-      FriendContacts: [
+      friends: [
         {
           id: "Manu",
           name: "Manuel Ruiz",
@@ -32,7 +39,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 * {
   box-sizing: border-box;
 }
